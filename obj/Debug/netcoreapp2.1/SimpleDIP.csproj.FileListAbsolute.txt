@@ -1,0 +1,11 @@
+G:\YDIP\SimpleDIP\bin\Debug\netcoreapp2.1\SimpleDIP.deps.json
+G:\YDIP\SimpleDIP\bin\Debug\netcoreapp2.1\SimpleDIP.runtimeconfig.json
+G:\YDIP\SimpleDIP\bin\Debug\netcoreapp2.1\SimpleDIP.runtimeconfig.dev.json
+G:\YDIP\SimpleDIP\bin\Debug\netcoreapp2.1\SimpleDIP.dll
+G:\YDIP\SimpleDIP\bin\Debug\netcoreapp2.1\SimpleDIP.pdb
+G:\YDIP\SimpleDIP\obj\Debug\netcoreapp2.1\SimpleDIP.csprojAssemblyReference.cache
+G:\YDIP\SimpleDIP\obj\Debug\netcoreapp2.1\SimpleDIP.csproj.CoreCompileInputs.cache
+G:\YDIP\SimpleDIP\obj\Debug\netcoreapp2.1\SimpleDIP.AssemblyInfoInputs.cache
+G:\YDIP\SimpleDIP\obj\Debug\netcoreapp2.1\SimpleDIP.AssemblyInfo.cs
+G:\YDIP\SimpleDIP\obj\Debug\netcoreapp2.1\SimpleDIP.dll
+G:\YDIP\SimpleDIP\obj\Debug\netcoreapp2.1\SimpleDIP.pdb
