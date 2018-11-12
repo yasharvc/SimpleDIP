@@ -11,6 +11,7 @@ namespace SimpleDIP
         {
             ResolveAllInterfaces(typeof(T));
         }
+
         public static void Register(Type t)
         {
             ResolveAllInterfaces(t);
@@ -30,10 +31,62 @@ namespace SimpleDIP
             }
         }
 
+        public static T CreateInstance<T>() where T : class
+        {
+            try
+            {
+                return Resolve<T>();
+            }
+            catch
+            {
+                Type type = typeof(T);
+                var constructors = type.GetConstructors();
+                T res = null;
+                foreach (var constructor in constructors)
+                {
+                    var parameters = constructor.GetParameters();
+                    var pars = new List<Object>();
+                    foreach (var x in parameters)
+                    {
+                        pars.Add(CreateInstance(x.ParameterType));
+                    }
+                    res = (T)constructor.Invoke(pars.ToArray());
+                    break;
+                }
+                return res;
+            }
+        }
+
+        private static object CreateInstance(Type t){
+            try{
+                return Resolve(t);
+            }catch{
+                var constructors = t.GetConstructors();
+                Object res = null;
+                foreach (var constructor in constructors)
+                {
+                    var parameters = constructor.GetParameters();
+                    var pars = new List<Object>();
+                    foreach (var x in parameters)
+                    {
+                        pars.Add(CreateInstance(x.ParameterType));
+                    }
+                    res = constructor.Invoke(pars.ToArray());
+                    break;
+                }
+                return res;
+            }
+        }
+
+
         public static void Register<T, V>()
         {
             converter[typeof(T)] = typeof(V);
             ResolveAllInterfaces(typeof(V));
+        }
+
+        public static object Resolve(Type type){
+            return Activator.CreateInstance(converter[type]);
         }
         public static T Resolve<T>()
         {

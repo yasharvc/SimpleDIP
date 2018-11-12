@@ -23,6 +23,8 @@ namespace SimpleDIP
             msgWriter = SimpleDIP.Resolve<IMessageWriter>();
             Console.WriteLine($"IMessageWriter.WriteMessage :");
             msgWriter.WriteMessage("Second Message Test!");
+
+            SimpleDIP.CreateInstance<ConstructorDependency>().logIt("Salam");
         }
     }
 }
