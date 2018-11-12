@@ -7,7 +7,7 @@ namespace SimpleDIP
 		static void Main(string[] args)
 		{
 			SimpleDIP.Register<ClassWithBothInterface>();
-			SimpleDIP.Register<BaseClass,ConcreateClass>();
+			SimpleDIP.Register<ConstructorDependency>();
 
 			// IMessageWriter msgWriter = SimpleDIP.Resolve<IMessageWriter>();
 			// //Magic happens here!!!
