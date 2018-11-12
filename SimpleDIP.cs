@@ -9,6 +9,8 @@ namespace SimpleDIP
 
         public static void Register<T>()
         {
+            if(!typeof(T).IsAbstract)
+                converter[typeof(T)] = typeof(T);
             ResolveAllInterfaces(typeof(T));
         }
 
@@ -39,7 +41,7 @@ namespace SimpleDIP
             }
             catch
             {
-                Type type = typeof(T);
+                Type type = converter[typeof(T)];
                 var constructors = type.GetConstructors();
                 T res = null;
                 foreach (var constructor in constructors)
@@ -81,8 +83,9 @@ namespace SimpleDIP
 
         public static void Register<T, V>()
         {
-            converter[typeof(T)] = typeof(V);
-            ResolveAllInterfaces(typeof(V));
+            //if(!typeof(T).IsAbstract)
+                converter[typeof(T)] = typeof(V);
+            //ResolveAllInterfaces(typeof(V));
         }
 
         public static object Resolve(Type type){
